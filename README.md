@@ -12,7 +12,7 @@
 
 1. [Введение в виртуализацию.](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-01-basics)
 
-2. [Применение принципов IaaC в работе с виртуальными машинами](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-02-iaac)
+2. [Применение принципов IaaC в работе с виртуальными машинами](./05-virt-02-iaac)
 
 3. [Введение в Docker](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-03-docker)
 
