@@ -14,7 +14,7 @@
 
 2. [Применение принципов IaaC в работе с виртуальными машинами](./05-virt-02-iaac)
 
-3. [Введение в Docker](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-03-docker)
+3. [Введение в Docker](./05-virt-03-docker)
 
 4. [Оркестрация группой Docker контейнеров на примере Docker Compose.](https://github.com/netology-code/virt-homeworks/tree/virt-11/05-virt-04-docker-compose)
 
