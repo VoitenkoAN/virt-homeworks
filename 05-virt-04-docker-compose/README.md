@@ -37,7 +37,7 @@
 
 Для получения зачета, вам необходимо предоставить cкриншот страницы свойств созданной ВМ из личного кабинета YandexCloud.
 
-![Снимок экрана от 2023-03-09 15-14-53](https://user-images.githubusercontent.com/110226611/223961189-eb6d1441-4c82-477a-b442-f985d739ba8e.png)
+![Снимок экрана от 2023-03-09 16-37-05](https://user-images.githubusercontent.com/110226611/223981457-ad870077-1e3f-4432-ab4c-74c36983b9b2.png)
 
 
 ## Задача 3
@@ -49,6 +49,9 @@
 <p align="center">
   <img width="1200" height="600" src="./assets/yc_02.png">
 </p>
+
+![Снимок экрана от 2023-03-09 16-47-56](https://user-images.githubusercontent.com/110226611/223984161-5108a436-fe81-4efa-8440-3e047d9afe6a.png)
+
 
 ## Задача 4 (*)
 
