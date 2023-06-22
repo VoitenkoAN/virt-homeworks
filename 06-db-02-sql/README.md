@@ -37,9 +37,25 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 
 Приведите:
 - итоговый список БД после выполнения пунктов выше,
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/09b3f297-6acf-430b-8872-aabd3a425a5e)
+
 - описание таблиц (describe)
-- SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/c5692e49-4a27-41c1-a2a0-27e89498fa2f)
+
+
+- SQL-запрос для выдачи списка пользователей с правами над таблицами test_db]
+
+
+
 - список пользователей с правами над таблицами test_db
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/1bb1648b-9b9f-44c9-bab2-ca529d4f6b93)
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/ef147e58-da96-48e6-bf76-b25a3b05baa4)
+
+
 
 ## Задача 3
 
