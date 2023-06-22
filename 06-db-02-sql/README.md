@@ -13,6 +13,7 @@
 Приведите получившуюся команду или docker-compose манифест.
 ```
 sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/docker/volumes/postgres/data:/var/lib/postgresql/data -v ~/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp -d postgres:12
+```
 
 ## Задача 2
 
