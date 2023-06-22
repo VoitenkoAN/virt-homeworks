@@ -11,6 +11,9 @@
 в который будут складываться данные БД и бэкапы.
 
 Приведите получившуюся команду или docker-compose манифест.
+```
+sudo docker run -d --name pg_docker -e POSTGRES_PASSWORD=123 -p 5433:5433 -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp postgres:12
+```
 
 ## Задача 2
 
