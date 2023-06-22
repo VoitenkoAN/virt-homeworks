@@ -86,6 +86,13 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 - приведите в ответе:
     - запросы 
     - результаты их выполнения.
+ ![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/5cdd0711-f382-48c2-85b7-2e5b495cc729)
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/cf2834d3-e925-49f4-b1ce-c7c716957f5d)
+
+ 
+  
+
 
 ## Задача 4
 
@@ -100,8 +107,18 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 |Иоганн Себастьян Бах| Гитара |
 
 Приведите SQL-запросы для выполнения данных операций.
-
+```
+UPDATE clients SET order_number=3 WHERE id=1;
+UPDATE clients SET order_number=4 WHERE id=2;
+UPDATE clients SET order_number=5 WHERE id=3;
+```
 Приведите SQL-запрос для выдачи всех пользователей, которые совершили заказ, а также вывод данного запроса.
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/28484e6d-1684-40d0-874c-3cdf1a1e14c7)
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/df36fbb3-a87f-41c0-8fbf-eef29cb672c3)
+
+
  
 Подсказк - используйте директиву `UPDATE`.
 
@@ -109,6 +126,11 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
 (используя директиву EXPLAIN).
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/47a47688-a8e9-4e8a-9e63-06c60c8dcae8)
+```
+EXPLAIN - позволяет нам дать служебную информацию о запросе к БД, в том числе время на выполнение запроса, что при оптимизации работы БД является очень полезной информацией.
+```
 
 Приведите получившийся результат и объясните что значат полученные значения.
 
