@@ -12,7 +12,7 @@
 
 Приведите получившуюся команду или docker-compose манифест.
 ```
-sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/docker/volumes/postgres/data:/var/lib/postgresql/data -v ~/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp -d postgres:12
+sudo docker run --name pg_docker2 -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp -d postgres:12
 ```
 
 ## Задача 2
@@ -38,23 +38,27 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 Приведите:
 - итоговый список БД после выполнения пунктов выше,
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/09b3f297-6acf-430b-8872-aabd3a425a5e)
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/1e57ae95-3d2e-4890-915c-36505c9286fb)
 
 - описание таблиц (describe)
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/c5692e49-4a27-41c1-a2a0-27e89498fa2f)
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/ed69d26c-3ffc-4ed1-a0d9-71129ca607bf)
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/b4408cbc-6111-4566-8bab-c621c67045e7)
+
 
 
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db]
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/4c9693cc-12fc-4a4b-ab98-41ca529a421d)
+
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/732a4222-02b0-4600-b2d9-aad26118dad7)
 
 
 
 - список пользователей с правами над таблицами test_db
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/1bb1648b-9b9f-44c9-bab2-ca529d4f6b93)
-
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/ef147e58-da96-48e6-bf76-b25a3b05baa4)
-
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/ae0ed93c-18ca-46d4-881d-a9dcc57f4c7f)
 
 
 ## Задача 3
@@ -86,12 +90,13 @@ sudo docker run --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v ~/
 - приведите в ответе:
     - запросы 
     - результаты их выполнения.
- ![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/5cdd0711-f382-48c2-85b7-2e5b495cc729)
+ ```
+SELECT COUNT(*) FROM orders;
+SELECT COUNT(*) FROM clients;
+```
+ ![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/6e5ff66e-e54a-4f21-a2bd-227bc4054a0d)
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/cf2834d3-e925-49f4-b1ce-c7c716957f5d)
-
- 
-  
+  ![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/a1d6af28-e35b-4110-b85c-8128dbca4ade)
 
 
 ## Задача 4
@@ -113,13 +118,11 @@ UPDATE clients SET order_number=4 WHERE id=2;
 UPDATE clients SET order_number=5 WHERE id=3;
 ```
 Приведите SQL-запрос для выдачи всех пользователей, которые совершили заказ, а также вывод данного запроса.
+```
+SELECT * FROM clients WHERE order_number IS NOT NULL
+```
+ ![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/2f10e05c-2133-426b-92b2-f8ea89fb3120)
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/28484e6d-1684-40d0-874c-3cdf1a1e14c7)
-
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/df36fbb3-a87f-41c0-8fbf-eef29cb672c3)
-
-
- 
 Подсказк - используйте директиву `UPDATE`.
 
 ## Задача 5
@@ -127,7 +130,9 @@ UPDATE clients SET order_number=5 WHERE id=3;
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
 (используя директиву EXPLAIN).
 
-![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/47a47688-a8e9-4e8a-9e63-06c60c8dcae8)
+![image](https://github.com/VoitenkoAN/virt-homeworks/assets/110226611/2c0ca39a-8531-4000-8c6e-1b48f8310e0f)
+
+
 ```
 EXPLAIN - позволяет нам дать служебную информацию о запросе к БД, в том числе время на выполнение запроса, что при оптимизации работы БД является очень полезной информацией.
 ```
@@ -138,15 +143,22 @@ EXPLAIN - позволяет нам дать служебную информац
 
 Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).
 ```
-root@ec8b1129218f:/# pg_dump -U postgres >/var/lib/postgresql/bckp_"`date +"%d-%m-%Y"`"
+pg_dumpall -U postgres >/var/lib/postgresql/bckp/bckp_"`date +"%d-%m-%Y"`"
 ```
 Остановите контейнер с PostgreSQL (но не удаляйте volumes).
 
-
+```
+sudo docker stop 72f9239fbaed
+```
 
 Поднимите новый пустой контейнер с PostgreSQL.
 
+sudo docker run --name pg_docker3 -e POSTGRES_PASSWORD=123 -p 5432:5432/tcp -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp -d postgres:12
+
 Восстановите БД test_db в новом контейнере.
+
+sudo docker exec -it 6cd93e85c080  /bin/bash
+psql -U postgres -f /var/lib/postgresql/bckp/bckp_23-06-2023
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
 
