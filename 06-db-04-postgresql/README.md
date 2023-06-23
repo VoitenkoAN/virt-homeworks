@@ -3,6 +3,9 @@
 ## Задача 1
 
 Используя docker поднимите инстанс PostgreSQL (версию 13). Данные БД сохраните в volume.
+```
+sudo docker run -d --name pg_docker -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp postgres:13
+```
 
 Подключитесь к БД PostgreSQL используя `psql`.
 
@@ -15,6 +18,13 @@
 - вывода описания содержимого таблиц
 - выхода из psql
 
+```
+вывода списка БД - \l
+подключения к БД - \c <db_name>
+вывода списка таблиц - \dt
+вывода описания содержимого таблиц - \d+ <table_name>
+выхода из psql = \q
+```
 ## Задача 2
 
 Используя `psql` создайте БД `test_database`.
