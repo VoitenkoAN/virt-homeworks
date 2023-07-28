@@ -4,7 +4,7 @@
 
 Используя docker поднимите инстанс PostgreSQL (версию 13). Данные БД сохраните в volume.
 ```
-sudo docker run -d --name pg_docker -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp postgres:13
+sudo docker run -d --name pg_docker -e POSTGRES_PASSWORD=123 -p 5432:5432 -v $HOME/docker/volumes/postgres/data:/var/lib/postgresql/data -v $HOME/docker/volumes/postgres/bckp:/var/lib/postgresql/bckp postgres:13
 ```
 
 Подключитесь к БД PostgreSQL используя `psql`.
